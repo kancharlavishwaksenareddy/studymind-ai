@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>ConceptCraft AI</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</head>
+
+<body>
+
+<h1>🧠 Study Mind AI</h1>
+
+<div id="chat"></div>
+
+<input id="input" placeholder="Enter topic">
+
+<br><br>
+
+<button onclick="send()">Explain</button>
+<button onclick="quiz()">Quiz</button>
+<button onclick="exam()">Exam</button>
+<button onclick="voiceInput()">🎤 Speak</button>
+<button onclick="confuse()">Confusion</button>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
