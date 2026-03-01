@@ -2,24 +2,29 @@
 <html>
 <head>
     <title>Study Mind AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <h1>Study Mind AI</h1>
+    <h1>🧠 Study Mind AI</h1>
 
-   <input type="text" id="topicInput" placeholder="Enter topic">
+    <div class="container">
 
-<div>
-    <button id="explainBtn">Explain</button>
-    <button>Quiz</button>
-    <button>Exam</button>
-    <button>Speak</button>
-    <button>Confusion</button>
-</div>
+        <div class="output" id="output"></div>
 
-<div id="output"></div>
+        <input type="text" id="topicInput" placeholder="Enter topic">
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+        <div class="buttons">
+            <button id="explainBtn">Explain</button>
+            <button>Quiz</button>
+            <button>Exam</button>
+            <button>Speak</button>
+            <button>Confusion</button>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
