@@ -6,45 +6,26 @@
 </head>
 <body>
 
-<!-- 🌟 Floating Particles -->
 <div class="particles">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
 </div>
 
-<div class="app-container">
+<div class="app-wrapper">
 
-    <div class="chat-card">
+    <header>
+        🧠 Study Mind AI
+    </header>
 
-        <div class="header">
-            <div class="logo">🧠</div>
-            <h1>Study Mind AI</h1>
+    <div class="chat-container" id="output">
+        <div class="message ai">
+            Ask me anything and I’ll explain it clearly.
         </div>
+    </div>
 
-        <div class="chat-box" id="output">
-            <div class="message ai">
-                Ask me anything and I’ll explain it clearly.
-            </div>
-        </div>
-
-        <div class="input-area">
-            <input type="text" id="topicInput" placeholder="Ask something...">
-            <button id="explainBtn">Send</button>
-        </div>
-
-        <div class="options">
-            <button>Quiz</button>
-            <button>Exam</button>
-            <button>Speak</button>
-            <button>Confusion</button>
-        </div>
-
+    <div class="input-container">
+        <input type="text" id="topicInput" placeholder="Type your question...">
+        <button id="explainBtn">Send</button>
     </div>
 
 </div>
