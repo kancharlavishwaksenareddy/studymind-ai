@@ -1,30 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>ConceptCraft AI</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-
+    <title>Study Mind AI</title>
 </head>
-
 <body>
 
-<h1>🧠 Study Mind AI</h1>
+    <h1>Study Mind AI</h1>
 
-<div id="chat"></div>
+    <input type="text" id="topicInput" placeholder="Enter topic">
 
-<input id="input" placeholder="Enter topic">
+    <button id="explainBtn">Explain</button>
 
-<br><br>
+    <div id="output"></div>
 
-<button onclick="send()">Explain</button>
-<button onclick="quiz()">Quiz</button>
-<button onclick="exam()">Exam</button>
-<button onclick="voiceInput()">🎤 Speak</button>
-<button onclick="confuse()">Confusion</button>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
 </html>

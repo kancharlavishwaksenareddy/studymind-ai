@@ -1,11 +1,11 @@
 console.log("JS LOADED");
 
-function sendRequest(type) {
-    const topic = document.querySelector("input").value;
+document.getElementById("explainBtn").addEventListener("click", function () {
+    console.log("Explain clicked");
 
-    console.log(type + " clicked");
+    const topic = document.getElementById("topicInput").value;
 
-    fetch(`/${type}`, {
+    fetch("/explain", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -14,9 +14,9 @@ function sendRequest(type) {
     })
     .then(response => response.json())
     .then(data => {
-        document.querySelector(".output").innerText = data.response;
+        document.getElementById("output").innerText = data.response;
     })
     .catch(error => {
         console.error("Error:", error);
     });
-}
+});
