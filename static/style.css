@@ -48,24 +48,35 @@ h1 {
 
 /* Chat box */
 .chat-box {
-    background: rgba(255,255,255,0.4);
-    border-radius: 15px;
-    padding: 15px;
-    height: 250px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 20px;
+    padding: 20px;
+    height: 400px;              /* Increased size */
+    max-height: 450px;
     overflow-y: auto;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    scrollbar-width: thin;
 }
 
 .message {
-    background: white;
-    padding: 10px 12px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    font-size: 14px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    font-size: 15px;          /* Bigger text */
+    line-height: 1.6;         /* Proper spacing */
+    max-width: 85%;
+    word-wrap: break-word;
+    white-space: pre-wrap;    /* Keeps line breaks */
 }
 
 .message.ai {
-    background: #ffffff;
+    background: white;
+    color: #333;
+    border-radius: 18px 18px 18px 5px;
 }
 
 /* Input area */
