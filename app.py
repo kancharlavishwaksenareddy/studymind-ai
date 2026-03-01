@@ -10,7 +10,10 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 def home():
     return render_template("index.html")
 
-@app.route("/explain", methods=["POST"])
+@app.route("/quiz", methods=["POST"])
+@app.route("/exam", methods=["POST"])
+@app.route("/speak", methods=["POST"])
+@app.route("/confusion", methods=["POST"])
 def explain():
     topic = request.json["topic"]
 
