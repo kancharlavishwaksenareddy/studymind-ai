@@ -12,28 +12,15 @@ body {
     background: #000;
 }
 
-/* ===== Decorative Frame Overlay ===== */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url("/static/images/frame.png") no-repeat center center;
-    background-size: 95% 95%;
-    opacity: 0.07;   /* Adjust 0.05 – 0.12 */
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* ===== Layout ===== */
+/* ===== LAYOUT ===== */
 .app-wrapper {
     position: relative;
-    z-index: 2;
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 header {
     padding: 20px;
     font-size: 20px;
@@ -41,7 +28,20 @@ header {
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ===== Chat Area ===== */
+/* ===== WELCOME ===== */
+.welcome {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.welcome h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+/* ===== CHAT AREA ===== */
 .chat-container {
     flex: 1;
     overflow-y: auto;
@@ -51,7 +51,7 @@ header {
     gap: 20px;
 }
 
-/* ===== Messages ===== */
+/* ===== MESSAGE BUBBLES ===== */
 .message {
     max-width: 75%;
     padding: 16px 20px;
@@ -61,6 +61,7 @@ header {
     white-space: pre-wrap;
 }
 
+/* AI Message */
 .message.ai {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.08);
@@ -68,13 +69,14 @@ header {
     align-self: flex-start;
 }
 
+/* User Message */
 .message.user {
     background: white;
     color: black;
     align-self: flex-end;
 }
 
-/* ===== Input Area ===== */
+/* ===== INPUT AREA ===== */
 .input-container {
     display: flex;
     padding: 20px 20%;
@@ -109,4 +111,33 @@ button {
 
 button:hover {
     background: #ddd;
+}
+
+/* ===== TYPING ANIMATION ===== */
+.typing {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.typing span {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 1.4s infinite both;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; transform: translateY(0px); }
+    20% { opacity: 1; transform: translateY(-4px); }
+    100% { opacity: 0.2; transform: translateY(0px); }
 }
