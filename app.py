@@ -1,30 +1,22 @@
-from flask import Flask, request, jsonify, render_template
-from groq import Groq
+from flask import request, jsonify
 
-app = Flask(__name__, static_folder="static", static_url_path="/static")
-
-import os
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-@app.route("/quiz", methods=["POST"])
-@app.route("/exam", methods=["POST"])
-@app.route("/speak", methods=["POST"])
-@app.route("/confusion", methods=["POST"])
+@app.route("/explain", methods=["POST"])
 def explain():
-    topic = request.json["topic"]
+    data = request.get_json()
+    topic = data.get("topic")
 
     response = client.chat.completions.create(
-       model="llama-3.1-8b-instant",
+        model="llama-3.1-8b-instant",
         messages=[
-            {"role": "user", "content": f"Explain {topic} simply and exam oriented"}
+            {"role": "user", "content": f"Explain {topic} in simple terms."}
         ]
     )
 
-    return jsonify({"result": response.choices[0].message.content})
+    answer = response.choices[0].message.content
+
+    return jsonify({"response": answer})
+import os
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
