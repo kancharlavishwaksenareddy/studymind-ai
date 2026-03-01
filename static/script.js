@@ -1,50 +1,48 @@
-document.getElementById("explainBtn").addEventListener("click", function () {
+document.getElementById("explainBtn").addEventListener("click", sendMessage);
+document.getElementById("topicInput").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") sendMessage();
+});
 
-    const topic = document.getElementById("topicInput").value.trim();
-    if (!topic) return;
+function sendMessage() {
 
-    const output = document.getElementById("output");
+    const input = document.getElementById("topicInput");
+    const text = input.value.trim();
+    if (!text) return;
 
-    // Hide welcome
-    const welcome = document.getElementById("welcomeScreen");
-    if (welcome) {
-        welcome.style.display = "none";
-    }
+    const chat = document.getElementById("output");
 
-    // Add user message
-    const userMessage = document.createElement("div");
-    userMessage.className = "message user";
-    userMessage.textContent = topic;
-    output.appendChild(userMessage);
+    // User message
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.textContent = text;
+    chat.appendChild(userMsg);
 
-    document.getElementById("topicInput").value = "";
-    output.scrollTop = output.scrollHeight;
+    input.value = "";
+    chat.scrollTop = chat.scrollHeight;
 
-    // Add typing animation
+    // Typing animation
     const typing = document.createElement("div");
     typing.className = "message ai typing";
     typing.innerHTML = "<span></span><span></span><span></span>";
-    output.appendChild(typing);
-    output.scrollTop = output.scrollHeight;
+    chat.appendChild(typing);
+    chat.scrollTop = chat.scrollHeight;
 
     fetch("/explain", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic: topic })
+        body: JSON.stringify({ topic: text })
     })
     .then(res => res.json())
     .then(data => {
 
         typing.remove();
 
-        const aiMessage = document.createElement("div");
-        aiMessage.className = "message ai";
-        aiMessage.textContent = data.response;
-        output.appendChild(aiMessage);
+        const aiMsg = document.createElement("div");
+        aiMsg.className = "message ai";
+        aiMsg.textContent = data.response;
+        chat.appendChild(aiMsg);
 
-        output.scrollTop = output.scrollHeight;
+        chat.scrollTop = chat.scrollHeight;
     })
-    .catch(() => {
-        typing.remove();
-    });
-});
+    .catch(() => typing.remove());
+}
