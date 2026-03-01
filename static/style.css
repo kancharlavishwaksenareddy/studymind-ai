@@ -2,16 +2,17 @@
     box-sizing: border-box;
 }
 
-/* Background */
+/* Black background */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    background: #000;
     height: 100vh;
     overflow: hidden;
+    color: white;
 }
 
-/* Floating particles */
+/* Floating particles (subtle white) */
 .particles {
     position: fixed;
     width: 100%;
@@ -21,22 +22,13 @@ body {
 
 .particles span {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background: rgba(255,255,255,0.3);
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.15);
     border-radius: 50%;
     bottom: -50px;
-    animation: float 20s linear infinite;
+    animation: float 25s linear infinite;
 }
-
-.particles span:nth-child(1){left:10%;animation-duration:18s;}
-.particles span:nth-child(2){left:20%;animation-duration:22s;}
-.particles span:nth-child(3){left:35%;animation-duration:25s;}
-.particles span:nth-child(4){left:50%;animation-duration:20s;}
-.particles span:nth-child(5){left:65%;animation-duration:27s;}
-.particles span:nth-child(6){left:75%;animation-duration:19s;}
-.particles span:nth-child(7){left:85%;animation-duration:24s;}
-.particles span:nth-child(8){left:95%;animation-duration:21s;}
 
 @keyframes float {
     0% { transform: translateY(0); opacity: 0.5; }
@@ -57,8 +49,7 @@ header {
     padding: 20px;
     font-size: 20px;
     font-weight: bold;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Welcome */
@@ -71,10 +62,10 @@ header {
     font-size: 48px;
     font-weight: 600;
     margin: 0;
-    color: #073b3a;
+    color: white;
 }
 
-/* Chat */
+/* Chat Area */
 .chat-container {
     flex: 1;
     overflow-y: auto;
@@ -88,52 +79,57 @@ header {
 .message {
     max-width: 70%;
     padding: 14px 18px;
-    border-radius: 20px;
+    border-radius: 18px;
     font-size: 15px;
     line-height: 1.6;
     white-space: pre-wrap;
 }
 
 .message.ai {
-    background: rgba(255,255,255,0.9);
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
     align-self: flex-start;
 }
 
 .message.user {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: white;
+    background: white;
+    color: black;
     align-self: flex-end;
 }
 
-/* Input */
+/* Input Area */
 .input-container {
     display: flex;
     padding: 20px;
     gap: 10px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 input {
     flex: 1;
     padding: 14px;
     border-radius: 25px;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: #111;
+    color: white;
     outline: none;
-    font-size: 14px;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.4);
 }
 
 button {
     padding: 14px 20px;
     border-radius: 25px;
     border: none;
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: white;
+    background: white;
+    color: black;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
 }
 
 button:hover {
-    transform: scale(1.05);
+    background: #ddd;
 }
