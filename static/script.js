@@ -1,9 +1,12 @@
-console.log("JS LOADED");
-
 document.getElementById("explainBtn").addEventListener("click", function () {
 
     const topic = document.getElementById("topicInput").value.trim();
     if (!topic) return;
+
+    const welcome = document.getElementById("welcomeScreen");
+    if (welcome) {
+        welcome.style.display = "none";
+    }
 
     const output = document.getElementById("output");
 

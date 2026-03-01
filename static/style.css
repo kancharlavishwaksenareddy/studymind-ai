@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-/* Full screen mint gradient */
+/* Background */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -29,12 +29,21 @@ body {
     animation: float 20s linear infinite;
 }
 
+.particles span:nth-child(1){left:10%;animation-duration:18s;}
+.particles span:nth-child(2){left:20%;animation-duration:22s;}
+.particles span:nth-child(3){left:35%;animation-duration:25s;}
+.particles span:nth-child(4){left:50%;animation-duration:20s;}
+.particles span:nth-child(5){left:65%;animation-duration:27s;}
+.particles span:nth-child(6){left:75%;animation-duration:19s;}
+.particles span:nth-child(7){left:85%;animation-duration:24s;}
+.particles span:nth-child(8){left:95%;animation-duration:21s;}
+
 @keyframes float {
-    0% { transform: translateY(0); opacity: 0.4; }
+    0% { transform: translateY(0); opacity: 0.5; }
     100% { transform: translateY(-1200px); opacity: 0; }
 }
 
-/* Main app wrapper */
+/* Layout */
 .app-wrapper {
     position: relative;
     z-index: 2;
@@ -52,7 +61,20 @@ header {
     backdrop-filter: blur(20px);
 }
 
-/* Chat area FULL SCREEN */
+/* Welcome */
+.welcome {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.welcome h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0;
+    color: #073b3a;
+}
+
+/* Chat */
 .chat-container {
     flex: 1;
     overflow-y: auto;
@@ -72,20 +94,18 @@ header {
     white-space: pre-wrap;
 }
 
-/* AI */
 .message.ai {
     background: rgba(255,255,255,0.9);
     align-self: flex-start;
 }
 
-/* User */
 .message.user {
     background: linear-gradient(135deg, #00c6ff, #0072ff);
     color: white;
     align-self: flex-end;
 }
 
-/* Input fixed at bottom */
+/* Input */
 .input-container {
     display: flex;
     padding: 20px;
