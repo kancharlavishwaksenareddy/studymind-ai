@@ -7,13 +7,19 @@
 
     <h1>Study Mind AI</h1>
 
-    <input type="text" id="topicInput" placeholder="Enter topic">
+   <input type="text" id="topicInput" placeholder="Enter topic">
 
+<div>
     <button id="explainBtn">Explain</button>
+    <button>Quiz</button>
+    <button>Exam</button>
+    <button>Speak</button>
+    <button>Confusion</button>
+</div>
 
-    <div id="output"></div>
+<div id="output"></div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
