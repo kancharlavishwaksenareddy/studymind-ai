@@ -2,15 +2,10 @@
 <html>
 <head>
     <title>Study Mind AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
-<!-- Floating particles -->
-<div class="particles">
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-</div>
 
 <div class="app-wrapper">
 
@@ -18,17 +13,14 @@
         🧠 Study Mind AI
     </header>
 
-    <!-- Welcome Screen -->
+    <!-- Welcome -->
     <div class="welcome" id="welcomeScreen">
         <h1>Where should we start?</h1>
+        <div class="subtext">Ask me anything and I’ll explain it clearly.</div>
     </div>
 
     <!-- Chat Area -->
-    <div class="chat-container" id="output">
-        <div class="message ai">
-            Ask me anything and I’ll explain it clearly.
-        </div>
-    </div>
+    <div class="chat-container" id="output"></div>
 
     <!-- Input Area -->
     <div class="input-container">

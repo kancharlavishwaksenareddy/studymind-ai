@@ -5,13 +5,13 @@ document.getElementById("explainBtn").addEventListener("click", function () {
 
     const output = document.getElementById("output");
 
-    // Hide welcome if exists
+    // Hide welcome
     const welcome = document.getElementById("welcomeScreen");
     if (welcome) {
         welcome.style.display = "none";
     }
 
-    // 1️⃣ Show user message
+    // Add user message
     const userMessage = document.createElement("div");
     userMessage.className = "message user";
     userMessage.textContent = topic;
@@ -20,18 +20,13 @@ document.getElementById("explainBtn").addEventListener("click", function () {
     document.getElementById("topicInput").value = "";
     output.scrollTop = output.scrollHeight;
 
-    // 2️⃣ Create typing animation
+    // Add typing animation
     const typing = document.createElement("div");
     typing.className = "message ai typing";
-    typing.innerHTML = `
-        <span></span>
-        <span></span>
-        <span></span>
-    `;
+    typing.innerHTML = "<span></span><span></span><span></span>";
     output.appendChild(typing);
     output.scrollTop = output.scrollHeight;
 
-    // 3️⃣ Fetch AI response
     fetch("/explain", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -40,10 +35,8 @@ document.getElementById("explainBtn").addEventListener("click", function () {
     .then(res => res.json())
     .then(data => {
 
-        // Remove typing animation
         typing.remove();
 
-        // Show AI response
         const aiMessage = document.createElement("div");
         aiMessage.className = "message ai";
         aiMessage.textContent = data.response;
